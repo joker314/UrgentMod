@@ -1,8 +1,6 @@
 const Discord = require("discord.js")
 const client = new Discord.Client()
 
-console.log("Started! **005**");
-
 const SETTINGS = {
 	token: "ND<snip your bot token goes here>uU",
 	adminRoles: ["if anyone with", "these roles is NOT offline", "then this bot will", "take over"],
@@ -26,13 +24,11 @@ client.on("ready", () => {
 })
 
 client.on("guildMemberUpdate", () => {
-	console.log("SOMETHING HAPPENED!")
 	online = checkIfOnline()
 	client.user.setStatus(online ? "online" : "dnd");
 })
 
 client.on("presenceUpdate", () => {
-	console.log("SOMETHING HAPPENED!")
 	online = checkIfOnline()
 	client.user.setStatus(online ? "online" : "dnd");
 })
@@ -75,7 +71,7 @@ client.on("message", msg => {
 						msg.channel.send({embed: {color: 0xff0000, description: `${doNotBan} people voted to not ban; and ${doBan} people voted to ban. The majority has decided to keep this user in the server. I hope they made the right choice. A moderator will sort all this out when they get on.`}})
 					}
 					
-				}, 0.2 * 60e3)
+				}, 3 * 60e3)
 			})
 		}
 	} else {
