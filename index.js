@@ -64,8 +64,8 @@ client.on("message", msg => {
 					doNotBan -= myMsg.reactions.some(emoji => emoji.emoji.name === "💚" && emoji.users.has(userToBeBanned.id));
 					doBan -= myMsg.reactions.some(emoji => emoji.emoji.name === "❤" && emoji.users.has(userToBeBanned.id));
 					
-					if(doNotBan + doBan < 2) {
-						msg.channel.send({embed: {color: 0xffaa00, description: `${doNotBan} people voted to not ban; and ${doBan} people voted to ban. A total of ${doNotBan + doBan} people voted therefore. The minimum requirement is 2 votes. The user stays.`}})
+					if(doNotBan + doBan < 3) {
+						msg.channel.send({embed: {color: 0xffaa00, description: `${doNotBan} people voted to not ban; and ${doBan} people voted to ban. A total of ${doNotBan + doBan} people voted therefore. The minimum requirement is 3 votes. The user stays.`}})
 					} else if (doBan > doNotBan) {
 						msg.channel.send({embed: {color: 0xff0000, description: `${doNotBan} people voted to not ban; and ${doBan} people voted to ban. The majority has decided to ban this user. It is for the safety of this community that I am forced to announce, ${userToBeBanned} has been temporarily banned from the server until an admin can intervene`}}).then(() => userToBeBanned.ban("This was a temporary ban. If you are a moderator, please review this ban and decide whether it was justified. The votes to ban were " + doBan + " against " + doNotBan)).then(() => SETTINGS.someoneBanned())
 					} else {
