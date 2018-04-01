@@ -32,7 +32,7 @@ After three minutes, the bot will decide whether to ban the user.
 
 The bot will keep the user in the server if any of the below are true
 
-- Less than two valid votes were cast
+- Less than three valid votes were cast
 - A moderator came online by the end of the three minutes
 - At least half of the votes were for the green heart
 
