@@ -26,7 +26,7 @@ All users of your servers should be taught the bot's only command.
 !urgent ban @user
 ```
 
-It'll only work in DM, and you must mention exactly one user. When you do this, a poll will appear. Reacting with the red heart will vote to ban the user, and reacting with the green heart will vote to keep the user in the server. 
+It'll only work in the main server, and not DMs, and you must mention exactly one user. When you do this, a poll will appear. Reacting with the red heart will vote to ban the user, and reacting with the green heart will vote to keep the user in the server. 
 
 After three minutes, the bot will decide whether to ban the user.
 
