@@ -19,7 +19,6 @@ client.on("ready", () => {
 	console.log("Readied!")
 	target = client.guilds.get(SETTINGS.target)
 	online = checkIfOnline()
-	console.log(target.members.map(member => [member.user.presence.status === "offline" || !SETTINGS.adminRoles.some(role => member.roles.exists("name", role)), member.user.presence.status === "offline", !SETTINGS.adminRoles.some(role => member.roles.exists("name", role))]))
 	client.user.setStatus(online ? "online" : "dnd");
 })
 
@@ -51,7 +50,9 @@ client.on("message", msg => {
 			.then(myMsg => {
 				setTimeout(() => {
 					if(!online) {
-						msg.channel.send("")
+						msg.channel.send({embed: {description: "I couldn't ban " + userToBeBanned + " because a moderator has just become avaiable. Please address your concerns to them instead."}})
+						
+						return;
 					}
 					
 					let doNotBan = (myMsg.reactions.find(emoji => emoji.emoji.name === "💚")).count;
